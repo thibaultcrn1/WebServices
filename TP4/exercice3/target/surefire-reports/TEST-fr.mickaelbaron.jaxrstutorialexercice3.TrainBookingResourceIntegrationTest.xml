@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.266" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="26"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/thibault/dev/tp_vm/TP4/exercice3/target/test-classes:/Users/thibault/dev/tp_vm/TP4/exercice3/target/classes:/Users/thibault/.m2/repository/fr/mickaelbaron/jaxrs-tutorial-exercice2/1.0-SNAPSHOT/jaxrs-tutorial-exercice2-1.0-SNAPSHOT.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/3.1.3/jersey-container-grizzly2-http-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http-server/4.0.0/grizzly-http-server-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http/4.0.0/grizzly-http-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-framework/4.0.0/grizzly-framework-4.0.0.jar:/Users/thibault/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/inject/jersey-hk2/3.1.3/jersey-hk2-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-locator/3.0.4/hk2-locator-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/3.0.4/aopalliance-repackaged-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-api/3.0.4/hk2-api-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-utils/3.0.4/hk2-utils-3.0.4.jar:/Users/thibault/.m2/repository/org/javassist/javassist/3.29.2-GA/javassist-3.29.2-GA.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/3.1.3/jersey-media-jaxb-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.3/osgi-resource-locator-1.0.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/test-framework/jersey-test-framework-core/3.1.3/jersey-test-framework-core-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/Users/thibault/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/Users/thibault/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-server/3.1.3/jersey-server-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-client/3.1.3/jersey-client-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/thibault/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/3.1.3/jersey-container-servlet-core-3.1.3.jar:/Users/thibault/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-grizzly2/3.1.3/jersey-test-framework-provider-grizzly2-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-servlet/3.1.3/jersey-container-grizzly2-servlet-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/3.1.3/jersey-container-servlet-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http-servlet/4.0.0/grizzly-http-servlet-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/3.1.3/jersey-media-json-jackson-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-common/3.1.3/jersey-common-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/3.1.3/jersey-entity-filtering-3.1.3.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/module/jackson-module-jakarta-xmlbind-annotations/2.14.1/jackson-module-jakarta-xmlbind-annotations-2.14.1.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/Users/thibault/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/thibault/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/Users/thibault/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="26"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/26.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/thibault/dev/tp_vm/TP4/exercice3/target/surefire/surefirebooter-20260522184941178_3.jar /Users/thibault/dev/tp_vm/TP4/exercice3/target/surefire 2026-05-22T18-49-40_742-jvmRun1 surefire-20260522184941178_1tmp surefire_0-20260522184941178_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/thibault/dev/tp_vm/TP4/exercice3/target/test-classes:/Users/thibault/dev/tp_vm/TP4/exercice3/target/classes:/Users/thibault/.m2/repository/fr/mickaelbaron/jaxrs-tutorial-exercice2/1.0-SNAPSHOT/jaxrs-tutorial-exercice2-1.0-SNAPSHOT.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-http/3.1.3/jersey-container-grizzly2-http-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http-server/4.0.0/grizzly-http-server-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http/4.0.0/grizzly-http-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-framework/4.0.0/grizzly-framework-4.0.0.jar:/Users/thibault/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/inject/jersey-hk2/3.1.3/jersey-hk2-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-locator/3.0.4/hk2-locator-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/3.0.4/aopalliance-repackaged-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-api/3.0.4/hk2-api-3.0.4.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/hk2-utils/3.0.4/hk2-utils-3.0.4.jar:/Users/thibault/.m2/repository/org/javassist/javassist/3.29.2-GA/javassist-3.29.2-GA.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/3.1.3/jersey-media-jaxb-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.3/osgi-resource-locator-1.0.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/test-framework/jersey-test-framework-core/3.1.3/jersey-test-framework-core-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/Users/thibault/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/Users/thibault/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-server/3.1.3/jersey-server-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-client/3.1.3/jersey-client-3.1.3.jar:/Users/thibault/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/thibault/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/3.1.3/jersey-container-servlet-core-3.1.3.jar:/Users/thibault/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-grizzly2/3.1.3/jersey-test-framework-provider-grizzly2-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-grizzly2-servlet/3.1.3/jersey-container-grizzly2-servlet-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/3.1.3/jersey-container-servlet-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/grizzly/grizzly-http-servlet/4.0.0/grizzly-http-servlet-4.0.0.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/3.1.3/jersey-media-json-jackson-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/core/jersey-common/3.1.3/jersey-common-3.1.3.jar:/Users/thibault/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/3.1.3/jersey-entity-filtering-3.1.3.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar:/Users/thibault/.m2/repository/com/fasterxml/jackson/module/jackson-module-jakarta-xmlbind-annotations/2.14.1/jackson-module-jakarta-xmlbind-annotations-2.14.1.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/Users/thibault/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/thibault/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/Users/thibault/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/Users/thibault/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/thibault"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/26.0.1/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/thibault/dev/tp_vm/TP4/exercice3"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/thibault/dev/tp_vm/TP4/exercice3/target/surefire/surefirebooter-20260522184941178_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="26.0.1"/>
+    <property name="user.name" value="thibault"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.4.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/thibault/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/n0/qt77g1z16b72swj98gvkcdlh0000gn/T/"/>
+    <property name="java.version" value="26.0.1"/>
+    <property name="user.dir" value="/Users/thibault/dev/tp_vm/TP4/exercice3"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/thibault/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="26.0.1"/>
+    <property name="stdin.encoding" value="UTF-8"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="70.0"/>
+  </properties>
+  <testcase name="createTrainBookingWithBadTrainIdTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.074">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-3] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="getTrainBookingsTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.042">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-4] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="createTrainBookingTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.035">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-5] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="getTrainBookingTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.032">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-6] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="getTrainBookingWithBadTrainBookingIdTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.027">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-7] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="removeTrainBookingTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.03">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-8] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+  <testcase name="removeTrainBookingWithBadTrainBookingIdTest" classname="fr.mickaelbaron.jaxrstutorialexercice3.TrainBookingResourceIntegrationTest" time="0.023">
+    <system-err><![CDATA[mai 22, 2026 6:49:42 PM org.glassfish.jersey.test.grizzly.GrizzlyTestContainerFactory$GrizzlyTestContainer <init>
+INFOS: Creating GrizzlyTestContainer configured at the base URI http://localhost:9998/
+mai 22, 2026 6:49:42 PM org.glassfish.jersey.server.wadl.WadlFeature configure
+AVERTISSEMENT: JAXBContext implementation could not be found. WADL feature is disabled.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFOS: Started listener bound to [localhost:9998]
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.HttpServer start
+INFOS: [HttpServer-9] Started.
+mai 22, 2026 6:49:42 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFOS: Stopped listener bound to [localhost:9998]
+]]></system-err>
+  </testcase>
+</testsuite>
