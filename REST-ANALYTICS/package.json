@@ -1,0 +1,14 @@
+{
+  "name": "rest-analytics",
+  "version": "1.0.0",
+  "description": "API REST Analytics avec MongoDB (views, actions, goals)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "zod": "^3.22.4"
+  }
+}

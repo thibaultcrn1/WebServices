@@ -1,0 +1,316 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MythicGames REST API",
+    "version": "1.0.0",
+    "description": "API REST pour la marketplace de jeux vidéo MythicGames (TP2 - NodeJS + PostgreSQL)"
+  },
+  "servers": [
+    { "url": "http://localhost:8000", "description": "Serveur local" }
+  ],
+  "tags": [
+    { "name": "Products" },
+    { "name": "Users" },
+    { "name": "F2P Games" },
+    { "name": "Orders" },
+    { "name": "Reviews" }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Lister tous les produits",
+        "parameters": [
+          { "name": "name",  "in": "query", "schema": { "type": "string" }, "description": "Filtrer par nom" },
+          { "name": "about", "in": "query", "schema": { "type": "string" }, "description": "Filtrer par description" },
+          { "name": "price", "in": "query", "schema": { "type": "number" }, "description": "Filtrer par prix exact" }
+        ],
+        "responses": { "200": { "description": "Liste des produits" } }
+      },
+      "post": {
+        "tags": ["Products"],
+        "summary": "Créer un produit",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ProductInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Produit créé" },
+          "400": { "description": "Données invalides" }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Récupérer un produit",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Produit trouvé" },
+          "404": { "description": "Not found" }
+        }
+      },
+      "put": {
+        "tags": ["Products"],
+        "summary": "Remplacer un produit (PUT)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductInput" } } }
+        },
+        "responses": { "200": { "description": "Produit mis à jour" }, "404": { "description": "Not found" } }
+      },
+      "patch": {
+        "tags": ["Products"],
+        "summary": "Mettre à jour partiellement un produit (PATCH)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductPatch" } } }
+        },
+        "responses": { "200": { "description": "Produit mis à jour" }, "404": { "description": "Not found" } }
+      },
+      "delete": {
+        "tags": ["Products"],
+        "summary": "Supprimer un produit",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Produit supprimé" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Lister tous les utilisateurs (sans mot de passe)",
+        "responses": { "200": { "description": "Liste des utilisateurs" } }
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "Créer un utilisateur",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UserInput" } } }
+        },
+        "responses": { "201": { "description": "Utilisateur créé" }, "400": { "description": "Données invalides" } }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Récupérer un utilisateur",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Utilisateur trouvé" }, "404": { "description": "Not found" } }
+      },
+      "put": {
+        "tags": ["Users"],
+        "summary": "Remplacer un utilisateur (PUT)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UserInput" } } }
+        },
+        "responses": { "200": { "description": "Utilisateur mis à jour" } }
+      },
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Mettre à jour partiellement un utilisateur (PATCH)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/UserPatch" } } }
+        },
+        "responses": { "200": { "description": "Utilisateur mis à jour" } }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Supprimer un utilisateur",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Utilisateur supprimé" } }
+      }
+    },
+    "/f2p-games": {
+      "get": {
+        "tags": ["F2P Games"],
+        "summary": "Lister tous les jeux gratuits (FreeToGame)",
+        "responses": { "200": { "description": "Liste des jeux F2P" } }
+      }
+    },
+    "/f2p-games/{id}": {
+      "get": {
+        "tags": ["F2P Games"],
+        "summary": "Récupérer un jeu F2P par ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Jeu trouvé" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/orders": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Lister toutes les commandes",
+        "responses": { "200": { "description": "Liste des commandes" } }
+      },
+      "post": {
+        "tags": ["Orders"],
+        "summary": "Créer une commande (total calculé avec TVA ×1.2)",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OrderInput" } } }
+        },
+        "responses": { "201": { "description": "Commande créée" }, "400": { "description": "Données invalides" } }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Récupérer une commande",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Commande trouvée" }, "404": { "description": "Not found" } }
+      },
+      "put": {
+        "tags": ["Orders"],
+        "summary": "Remplacer une commande (PUT)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OrderInput" } } }
+        },
+        "responses": { "200": { "description": "Commande mise à jour" } }
+      },
+      "patch": {
+        "tags": ["Orders"],
+        "summary": "Mettre à jour partiellement une commande (PATCH)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OrderInput" } } }
+        },
+        "responses": { "200": { "description": "Commande mise à jour" } }
+      },
+      "delete": {
+        "tags": ["Orders"],
+        "summary": "Supprimer une commande",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Commande supprimée" } }
+      }
+    },
+    "/reviews": {
+      "get": {
+        "tags": ["Reviews"],
+        "summary": "Lister tous les avis",
+        "responses": { "200": { "description": "Liste des avis" } }
+      },
+      "post": {
+        "tags": ["Reviews"],
+        "summary": "Créer un avis",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReviewInput" } } }
+        },
+        "responses": { "201": { "description": "Avis créé" }, "400": { "description": "Données invalides" } }
+      }
+    },
+    "/reviews/{id}": {
+      "get": {
+        "tags": ["Reviews"],
+        "summary": "Récupérer un avis",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Avis trouvé" }, "404": { "description": "Not found" } }
+      },
+      "put": {
+        "tags": ["Reviews"],
+        "summary": "Remplacer un avis (PUT)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReviewInput" } } }
+        },
+        "responses": { "200": { "description": "Avis mis à jour" } }
+      },
+      "patch": {
+        "tags": ["Reviews"],
+        "summary": "Mettre à jour partiellement un avis (PATCH)",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ReviewPatch" } } }
+        },
+        "responses": { "200": { "description": "Avis mis à jour" } }
+      },
+      "delete": {
+        "tags": ["Reviews"],
+        "summary": "Supprimer un avis",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Avis supprimé" } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductInput": {
+        "type": "object",
+        "required": ["name", "about", "price"],
+        "properties": {
+          "name":  { "type": "string", "example": "MythicGame Alpha" },
+          "about": { "type": "string", "example": "Un RPG épique" },
+          "price": { "type": "number", "example": 59.99 }
+        }
+      },
+      "ProductPatch": {
+        "type": "object",
+        "properties": {
+          "name":  { "type": "string" },
+          "about": { "type": "string" },
+          "price": { "type": "number" }
+        }
+      },
+      "UserInput": {
+        "type": "object",
+        "required": ["username", "email", "password"],
+        "properties": {
+          "username": { "type": "string", "example": "player1" },
+          "email":    { "type": "string", "example": "player1@example.com" },
+          "password": { "type": "string", "example": "secret123" }
+        }
+      },
+      "UserPatch": {
+        "type": "object",
+        "properties": {
+          "username": { "type": "string" },
+          "email":    { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "OrderInput": {
+        "type": "object",
+        "required": ["user_id", "product_ids"],
+        "properties": {
+          "user_id":     { "type": "integer", "example": 1 },
+          "product_ids": { "type": "array", "items": { "type": "integer" }, "example": [1, 2] },
+          "payment":     { "type": "boolean", "example": false }
+        }
+      },
+      "ReviewInput": {
+        "type": "object",
+        "required": ["user_id", "product_id", "score", "content"],
+        "properties": {
+          "user_id":    { "type": "integer", "example": 1 },
+          "product_id": { "type": "integer", "example": 1 },
+          "score":      { "type": "integer", "minimum": 1, "maximum": 5, "example": 4 },
+          "content":    { "type": "string", "example": "Excellent jeu !" }
+        }
+      },
+      "ReviewPatch": {
+        "type": "object",
+        "properties": {
+          "user_id":    { "type": "integer" },
+          "product_id": { "type": "integer" },
+          "score":      { "type": "integer", "minimum": 1, "maximum": 5 },
+          "content":    { "type": "string" }
+        }
+      }
+    }
+  }
+}

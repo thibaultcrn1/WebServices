@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MythicGames — Live Products</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { color: #1a1a2e; }
+    #status { padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
+    .connected    { background: #d4edda; color: #155724; }
+    .disconnected { background: #f8d7da; color: #721c24; }
+    #log { border: 1px solid #ddd; border-radius: 6px; padding: 1rem; min-height: 200px;
+           background: #f9f9f9; font-family: monospace; font-size: 0.85rem; }
+    .event { padding: 4px 0; border-bottom: 1px solid #eee; }
+    .created { color: #155724; }
+    .updated { color: #856404; }
+    .deleted { color: #721c24; }
+  </style>
+</head>
+<body>
+  <h1>MythicGames — Produits en temps réel</h1>
+  <div id="status" class="disconnected">Déconnecté</div>
+
+  <h2>Événements reçus</h2>
+  <div id="log"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const statusEl = document.getElementById("status");
+    const logEl = document.getElementById("log");
+
+    function addEvent(cls, label, data) {
+      const div = document.createElement("div");
+      div.className = "event " + cls;
+      div.textContent = `[${new Date().toLocaleTimeString()}] ${label} : ${JSON.stringify(data)}`;
+      logEl.prepend(div);
+    }
+
+    socket.on("connect", () => {
+      statusEl.textContent = "Connecté (" + socket.id + ")";
+      statusEl.className = "connected";
+    });
+
+    socket.on("disconnect", () => {
+      statusEl.textContent = "Déconnecté";
+      statusEl.className = "disconnected";
+    });
+
+    socket.on("product:created", (data) => addEvent("created", "Produit créé", data));
+    socket.on("product:updated", (data) => addEvent("updated", "Produit mis à jour", data));
+    socket.on("product:deleted", (data) => addEvent("deleted", "Produit supprimé", data));
+  </script>
+</body>
+</html>

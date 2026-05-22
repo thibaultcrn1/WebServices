@@ -1,0 +1,14 @@
+{
+  "name": "tp1-soap",
+  "version": "1.0.0",
+  "description": "TP1 - Service Web SOAP avec NodeJS et PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "client": "node client.js"
+  },
+  "dependencies": {
+    "postgres": "^3.4.4",
+    "soap": "^1.0.0"
+  }
+}
